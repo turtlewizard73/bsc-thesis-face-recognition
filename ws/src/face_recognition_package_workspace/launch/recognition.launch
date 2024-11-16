@@ -1,0 +1,7 @@
+<launch>
+<node name="face_database" pkg="vision_recognition" type="face_database.py" output="screen" respawn="true" />
+
+<node name="image_publisher" pkg="vision_recognition" type="image_publisher.py" output="screen" respawn="true" />
+<node name="face_publisher" pkg="vision_recognition" type="face_recognition_core.py" output="screen" respawn="true" />
+
+</launch>

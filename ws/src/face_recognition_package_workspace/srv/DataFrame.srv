@@ -1,0 +1,9 @@
+# Pandas Dataframe
+string cmd
+---
+bool db_is_live
+uint32 faces
+uint32 encoding_dim
+float64[] encodings
+string[] names
+string[] uids
