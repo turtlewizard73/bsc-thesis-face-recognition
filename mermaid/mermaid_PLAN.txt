@@ -1,0 +1,9 @@
+ROS node-ok
+
+1. inputok
+2. outputok
+3. belső input --> outputig
+4. függvények részletezése
+    a
+    b
+    stb.
