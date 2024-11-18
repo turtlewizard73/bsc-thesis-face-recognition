@@ -1,0 +1,23 @@
+%----------------------------------------------------------------------------
+\chapter{\bevezetes}
+%----------------------------------------------------------------------------
+%forrás: https://ieeexplore.ieee.org/abstract/document/7029985
+A mobil szociális robotok fejlődésével, melyek célja, hogy képesek legyenek szolgáltatások elvégzésére és emberrel való kommukációra, egyre fontosabbá válik a megfelelő interakciós képességek kialakítása. A személyfelismerés a számítógépes látás egyik legfontosabb területe, amely lehetővé teszi a gépek számára, hogy értelmezzék és azonosítsák az emberek arcát a képeken vagy videókon. Szociális robotok gyakran interakcióba kerülnek az emberekkel, ezért képesnek kell lenniük, hogy kezeljék a különböző személyekkel való kommunikációt. A szolgáltatások elvégzése, például tárgyak-, csomagszállítás, kiszolgálás és emberek mindennapi tevékenységében való segítség erősen felhasználó specifikus. A különböző felhasználók egy-egy robottal folytatott interakció során, más paramétereket igényelhetnek, hogy felhasználó számáró kielégítő, megfelelő legyen a feladat elvégzése. Ezen paraméterek felhasználó specifikusak, ezért a felhasználók azonosítása és felismerése a sikeres interakció döntő feltétele.
+
+A dolgozat során egy ROS csomagot fejlesztettem, melynek lényege, hogy emberi arcok felismerésének képességével ruházzon fel egy mobil robotot, az ELTE Etológia Tanszék Biscee nevű robotját. A munkám során figyelembe vettem az eddig alkalmazott megoldásokat és a Python nyelven íródótt Dlib-et alkalmazó „face-recognition" könyvtár segítségével alakítottam ki ROS Noetic disztribúció alatt egy csomagot, amely képes előre betáplált arcok felismerésére és újonnan látott emberi arcok megjegyzésére, tárolására és kezelésére. A szakdolgozat célja volt, hogy Biscee valós körülmények között legyen képes emberek azonosítására és felismerésére arcról.
+
+A \az+\refstruc{sec:kutatas}ben irodalomkutatás alatt végzett munkám összefoglalója olvasható, amiben az emberek észlelésének fontosságától elindulva, az arcfelismerésig bezárólag írok egy összefoglalót az ember-gép kapcsolatáról, mobil szociális robotok potenciális feladatairól és alkalmazásukról az iparban, szolgáltatási szerepkörökben, szórakoztatásban és az élet különböző területein.
+
+A \refstruc{sec:algo}ben írok az arcfelismerés lépéseiről a dolgozat célkitűzéseinek tekintetében. Kifejtem a dolgozat során megírt csomag architekturális szintjeit, a megfogalmazott célokat ellátó algoritmus feladatait és egységekre bontását. Megindoklom a projekt során választott könyvtárak és modulok használatát.
+
+Elhelyezem Robot Operating System-en (ROS-on) belül az algoritmust. Erről szól a \refstruc{sec:inros}. Szintén itt részletezem a ROS rendszer elveit, és hogy azokban miként illeszkedik be a csomag. Ebben a fejezetben fejtem ki a külön alegységek feladatait és hatásköreit, a közöttük alkalmazott kommunikáció csatornáit és formáit. 
+
+Az utolsó, \refstruc{sec:meresek}ben mutatom be a csomaghoz írt tesztek eredményeit és elemzem, melyek során vizsgálom az arcok feldolgozásának gyorsaságát és minőségét.
+
+%TODO
+%diplomaterv-kiírás elemzése
+%történelmi előzményei
+%feladat indokoltsága, motiváció
+%eddigi megoldások
+%saját megoldás összefoglalása
+%melyik fejezet miről foglalkozik

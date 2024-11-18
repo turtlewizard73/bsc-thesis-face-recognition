@@ -1,0 +1,163 @@
+%----------------------------------------------------------------------------
+\appendix
+%----------------------------------------------------------------------------
+\chapter*{\melleklet}\addcontentsline{toc}{chapter}{\melleklet}
+%----------------------------------------------------------------------------
+\setcounter{chapter}{\annexletter} % M betű
+\setcounter{section}{0}
+%\setcounter{equation}{0}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{lstlisting}{section}
+%\numberwithin{tabular}{section}
+
+\section{„Node"-ok működését magyarázó ábrák}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=150mm, keepaspectratio]{02_mermaid/facenode2.png}
+    \caption{Arcfelismerést végző node „I/O"-ja.}
+    \label{fig:frio}
+\end{figure}
+
+%----------------------------------------------------------------------------
+\clearpage
+\section{Felbontás teszt}
+%----------------------------------------------------------------------------
+\begin{lstlisting}[language=tex, caption=Felbontás teszt eredménye.,label=lst:res_mel]
+Timings at resolution 240p:
+ - Face locations: 0.0617s (16.20 fps)
+ - Face landmarks: 0.0021s (471.55 fps)
+ - Encode face (from landmarks): 0.0542s (18.47 fps)
+ - Encode face (from image): 0.1168s (8.56 fps)
+ - Check for results: 0.0000s (36226.63 fps)
+ - Export results: 0.0034s (297.79 fps)
+
+Timings at resolution 480p:
+ - Face locations: 0.2413s (4.14 fps)
+ - Face landmarks: 0.0021s (469.63 fps)
+ - Encode face (from landmarks): 0.0539s (18.56 fps)
+ - Encode face (from image): 0.2955s (3.38 fps)
+ - Check for results: 0.0000s (35401.24 fps)
+ - Export results: 0.0086s (116.53 fps)
+
+Timings at resolution 720p:
+ - Face locations: 0.5414s (1.85 fps)
+ - Face landmarks: 0.0022s (462.77 fps)
+ - Encode face (from landmarks): 0.0538s (18.60 fps)
+ - Encode face (from image): 0.5946s (1.68 fps)
+ - Check for results: 0.0000s (34976.53 fps)
+ - Export results: 0.0172s (58.20 fps)
+
+Timings at resolution 1080p:
+ - Face locations: 1.2122s (0.82 fps)
+ - Face landmarks: 0.0022s (461.25 fps)
+ - Encode face (from landmarks): 0.0541s (18.48 fps)
+ - Encode face (from image): 1.2663s (0.79 fps)
+ - Check for results: 0.0000s (34540.88 fps)
+ - Export results: 0.0366s (27.32 fps)
+\end{lstlisting}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=67mm, keepaspectratio]{03_images/obama/o-obama-240p.jpg}\hspace{1cm}
+    \includegraphics[width=67mm, keepaspectratio]{03_images/obama/o-obama-480p.jpg}\\\vspace{5mm}
+    \includegraphics[width=67mm, keepaspectratio]{03_images/obama/o-obama-720p.jpg}\hspace{1cm}
+    \includegraphics[width=67mm, keepaspectratio]{03_images/obama/o-obama-1080p.jpg}
+    \caption{Felbontás teszt eredményei.}
+    \label{fig:felbontasteszt}
+\end{figure}
+
+%----------------------------------------------------------------------------
+\clearpage
+\section{Orientáció teszt}
+%----------------------------------------------------------------------------
+
+\begin{lstlisting}[language=tex, caption=Orientáció teszt eredménye.,label=lst:ori_mel]
+Timings at image 01:
+ - Face locations: 0.1861s (5.37 fps)
+ - Face landmarks: 0.0023s (428.68 fps)
+ - Encode face (from landmarks): 0.0539s (18.55 fps)
+ - Encode face (from image): 0.2417s (4.14 fps)
+ - Check for results: 0.0000s (36343.02 fps)
+ - Export results: 0.0072s (139.47 fps)
+
+Timings at image 02:
+ - Face locations: 0.1868s (5.35 fps)
+ - Face landmarks: 0.0023s (428.80 fps)
+ - Encode face (from landmarks): 0.0551s (18.16 fps)
+ - Encode face (from image): 0.2418s (4.14 fps)
+ - Check for results: 0.0000s (35546.96 fps)
+ - Export results: 0.0068s (146.09 fps)
+
+Timings at image 03:
+ - Face locations: 0.1864s (5.37 fps)
+ - Face landmarks: 0.0023s (430.34 fps)
+ - Encode face (from landmarks): 0.0550s (18.19 fps)
+ - Encode face (from image): 0.2415s (4.14 fps)
+ - Check for results: 0.0000s (35861.06 fps)
+ - Export results: 0.0071s (141.03 fps)
+
+Timings at image 04:
+ - Face locations: 0.1867s (5.36 fps)
+ - Face landmarks: 0.0024s (425.47 fps)
+ - Encode face (from landmarks): 0.0543s (18.41 fps)
+ - Encode face (from image): 0.2409s (4.15 fps)
+ - Check for results: 0.0000s (35305.75 fps)
+ - Export results: 0.0070s (143.77 fps)
+
+Timings at image 05:
+ - Face locations: 0.1865s (5.36 fps)
+ - Face landmarks: 0.0023s (426.16 fps)
+ - Encode face (from landmarks): 0.0546s (18.32 fps)
+ - Encode face (from image): 0.2405s (4.16 fps)
+ - Check for results: 0.0000s (36114.64 fps)
+ - Export results: 0.0070s (142.95 fps)
+
+Timings at image 06:
+ - Face locations: 0.1861s (5.37 fps)
+ - Face landmarks: 0.0023s (428.80 fps)
+ - Encode face (from landmarks): 0.0541s (18.47 fps)
+ - Encode face (from image): 0.2407s (4.15 fps)
+ - Check for results: 0.0000s (35948.72 fps)
+ - Export results: 0.0071s (140.64 fps)
+
+Timings at image 07:
+ - Face locations: 0.1871s (5.34 fps)
+ - Face landmarks: 0.0023s (428.44 fps)
+ - Encode face (from landmarks): 0.0549s (18.20 fps)
+ - Encode face (from image): 0.2426s (4.12 fps)
+ - Check for results: 0.0000s (36069.05 fps)
+ - Export results: 0.0070s (142.76 fps)
+
+Timings at image 08:
+ - Face locations: 0.1854s (5.39 fps)
+ - Face landmarks: 0.0023s (427.64 fps)
+ - Encode face (from landmarks): 0.0545s (18.34 fps)
+ - Encode face (from image): 0.2410s (4.15 fps)
+ - Check for results: 0.0000s (35911.28 fps)
+ - Export results: 0.0070s (142.97 fps)
+
+Timings at image 09:
+ - Face locations: 0.1859s (5.38 fps)
+ - Face landmarks: 0.0023s (428.17 fps)
+ - Encode face (from landmarks): 0.0542s (18.44 fps)
+ - Encode face (from image): 0.2422s (4.13 fps)
+ - Check for results: 0.0000s (36116.73 fps)
+ - Export results: 0.0071s (140.78 fps)
+
+Timings at image 10:
+ - Face locations: 0.1873s (5.34 fps)
+ - Face landmarks: 0.0023s (430.42 fps)
+ - Encode face (from landmarks): 0.0544s (18.40 fps)
+ - Encode face (from image): 0.2415s (4.14 fps)
+ - Check for results: 0.0000s (35711.73 fps)
+ - Export results: 0.0072s (139.33 fps)
+\end{lstlisting}
+
+\begin{figure}[!ht]
+	\centering
+	%\includegraphics[width=150mm, keepaspectratio]{03_images/ori_all1.png}
+    \includegraphics[width=150mm, keepaspectratio]{03_images/ori_all2.png}
+	\caption{Arc több orientációban.}
+	\label{fig:ori_test}
+\end{figure}

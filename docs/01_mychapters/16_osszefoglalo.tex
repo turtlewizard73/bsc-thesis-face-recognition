@@ -1,0 +1,36 @@
+%----------------------------------------------------------------------------
+\chapter{\osszefoglalas} % (Eredmények értékelése)
+%----------------------------------------------------------------------------
+
+
+\section{Eredmények}
+A személyfelismerő rendszer implementálása mobil szociális robotra olyan technológiai megoldás, mellyel lehetővé válik a robot számára, hogy azonosítsa az embereket és kapcsolatba lépjen velük egyéni módon. A mobil szociális robotok komplex gépek, melyek jellemzően képesek mozogni és navigálni környezetükben és emberekkel interakcióba lépni. Különböző feladatokat és szolgáltatásokat láthatnak el emberek életterében, ezért szükséges, hogy érzékeljék a mellettük létező, mozgó embereket. A robotok különböző módokon érzékelhetik az embereket. Az egyik legelterjedtebb megoldás, hogy kamerákkal szerelik fel őket és számítógépes látást használva azonosítanak embereket. A szakdolgozatomban én is egy ilyen megoldást választottam, tekintettel a cél robot: Biscee jelenlegi szenzoraira. A mobil szociális robotok olyan robotok, amelyek képesek kommunikálni és interakcióba lépni az emberekkel. A személyreszabott interakció feltétele, hogy képes legyen felhasználók megkülönböztetésére, ezért az emberek észlelése mellett fontos a felismerésük is. A technológia, amit a projekt során válsztottam az emberek felismerésére az arcon alapuló szemyélyfelismerés.
+
+Az arcfelismerés egy olyan technológia, amely képes azonosítani az emberek arcát digitális képek vagy videók segítségével. Gyorsabb és hatékonyabb módszer a személyek azonosítására, mint például az írisz- vagy ujjlenyomat-felismerés. Biztonságosabb módszer a személyek azonosítására, mint például a jelszavak használata, mert az arcot nem lehet könnyen meghamisítani. Széles körben elérhető, és általában nem igényel különleges eszközöket vagy berendezéseket. Egyszerűen használható, mert az embereknek csak a saját arcukat kell megmutatniuk a kamera előtt, és nem kell bonyolult jelszavakat vagy más adatokat megadniuk.
+
+A feladatom egy személyfelismerő rendszer létrehozása volt. Két felhasználási célt határoztunk meg a Biscee roboton. Az első, hogy manuálisan betanított adatokból képes legyen ember felismerésére. A második, hogy újonnan látott embereket is megjegyezzen, későbbi találkozás során emlékezzen rájuk. A létrehozott csomagot úgy alkottam meg, hogy mindkettő feladatot ellása. Képfájlokat adhatunk meg, amiken észlelt arcokat jegyez meg, hozzájuk nevet is társíthatunk. Futás során a kamerán megjelenő arcokat megjegyzi és elmenti. 
+
+A Biscee robottal több olyan, valódi élethelyzetekben végzett kísérletet tervezünk, ahol a robot pincérsegédként működve felismerheti az emberi pincéreket, illetve egyetemi és irodai környezetben az ott dolgozókat. A személyfelismerés kialakítása Bisceen nem csak azt teszi lehetővé, hogy a robot eltérően viselkedjen az ismerős és a még ismeretlen személyekkel, de elősegíti az adatgyűjtést és az autonóm kiértékelést is a kísérleteknél.
+
+A projekt célja egy ROS csomag fejlesztése volt Noetic verzió alatt, ami magában foglal egy
+kamera kezelő „node"-ot, egy adatbázis „node"-ot és egy, az arcok felismerését ellátó „node"-ot. Az arcfelismerést a „face-recognition" Python modul használatával kiviteleztem, ami egy fejlesztőként könnyen használható könyvtár. Dlib-re épült konvolúciós hálót alkalmazva, az emberi arcokról „enkódolást" készít, ami egy 128 elemű listával írja le az arcok tulajdonságait. A létrehozott „enkódolás" számítógép számára értelmezhetővé teszi (kvantálttá) a személyek arcait, így összehasonlíthatóvá válnak. Az „enkódolások" 128 dimenziós vektorként értelmezhetők euklidészi térben, távolságot számítva közöttük megállapítható az arcok eltérése vagy egyezése. Az arcokhoz társított adatokat: név, „id" és „enkódolás" adatbázisban tárolja, ennek menedzselésére létrehoztam egy külön osztályt, ami a Pandas \verb|Dataframe| osztályára épült. A kamera képéről észlelt arcokat képes a csomag összehasonlítani az adatbázisban tárolt személyek arcaival. Az észlelt és felismert embereket megjelöli az élő képen. 
+
+\section{Javaslatok} % Válassz egyet
+A csomag fejlesztése közben több területen gondolkodtam a további bővítési lehetőségeken. Az adatbázis struktúra felé, az objektum orientált programozás koncepcióját szem előtt tartva, bővíthető a csomag egy osztállyal. Úgy gondolom hasznos lenne egy struktúrába szervezni az arcokhoz tartozó adatokat, mely így megvalósítható lenne.
+
+A Biscee robotra való telepítés még egy fontos feladat, mely során figyelembe kell majd venni a robot hardveres erőforrásait. A feldolgozás folyamatának számos paraméterét be kell kalibrálni, hogy valós idejű rendszerként tudjon működni. Ezen paraméterek alatt értem a kamera képének felbontását, másodpercenkénti elkészített képek számát (FPS), az arcok felismerésben fontos szerepet játszó tolerancia értékének megválasztását. Mindezen változók, tényezők kalibrálása további teszteket igényel.
+
+Az arcok feldolgozásának folyamata annál több időt vesz igénybe, minél több arccal kell összehasonlítanunk. Mivel a csomag folyamatosan tanulja meg új emberek arcait, ezért az adatbázis könnyen nagy méretűvé tud válni, főleg akkor, ha a robotot egy forgalmas helyen alkalmazzuk. A nagy adathalmaz megnöveli az újonnan látott arcok feldolgozásásának idejét. Ebből az elgondolásból hoztam létre egy „cache" adatbázist, amiben megadhatók azok a személyek, akiket a robot potenciálisan többször lát (például pincérek vagy dolgozók). Ez azért gyorsítja a feldolgozást, mert először ebben az adatbázisban keres egyezést az algoritmus és csak ez után tér át a fő adathalmazra. További optimalizáció céljából egy lehetséges fejlesztés, hogy elmentsük az előző képkockán látott arcokat és új kép beérkezésekor először ezeket az elmentett adatokat vizsgáljuk. Valós felhasználás alkalmával előreláthatólag több ideig tartózkodnak emberek a kamera látóterében, ezért több egymásutáni képkockán is meg fog jelenni az arcuk. Viszont egy képkockán kézenfekvően nem lesz akkora embertömeg jelen, hogy hatalmas adathalmazt generáljon belőlük az algoritmus, ezért ha alkalmazzuk a leírt fejlesztést, csak egy kis méretű listát kell először átvizsgálni arcfelismerés során. A kisebb adatbázison gyorsabban végez feldolgozást, ezért összességében megállapítható, hogy gyorsítani tudná a teljes arcfelismerés folyamatát.
+
+% Keltezés, aláírás
+\vspace{0.5cm}
+
+\begin{flushleft}
+{Budapest, \today}
+\end{flushleft}
+
+\begin{flushright}
+\emph{\authorName}
+\end{flushright}
+
+\vfill

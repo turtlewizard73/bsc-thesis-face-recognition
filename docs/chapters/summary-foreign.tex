@@ -1,0 +1,19 @@
+%----------------------------------------------------------------------------
+\chapter*{\summary}\addcontentsline{toc}{chapter}{\summary}
+%----------------------------------------------------------------------------
+
+\selectforeignlanguage % angol (magyar) nyelvi beállítások
+
+Implementing a person recognition system on a mobile social robot is a technological solution that allows the robot to identify and interact with people in a personalised way. Mobile social robots are complex machines that are usually able to move and navigate in their environment and interact with humans. They can perform various tasks and services in people's living space, and therefore need to be able to sense people existing and moving alongside them. Robots can sense people in different ways. One of the most common ways is to equip them with cameras and use computer vision to identify people. For my thesis, I chose such a solution, given the current sensors of the target robot: Biscee. Mobile social robots are robots that can communicate and interact with humans. A prerequisite for personalized interactions is the ability to distinguish users, so in addition to detecting people, it is also important to recognize them. The technology that I have developed for this project to recognise people is based on face recognition.
+
+Face recognition is a technology that can identify people's faces using digital images or videos. It is a faster and more effective method of identifying people than, for example, iris or fingerprint recognition. It is a more secure method of identifying people than, for example, using passwords, because a face cannot be easily faked. It is widely available and does not usually require special tools or equipment. Simple to use because people only need to show their face to the camera and do not need to provide complex passwords or other information.
+
+The aim of the project was to develop a ROS package under the Noetic version, which includes a camera management node, a database node and a face recognition node. I implemented the face recognition using the Python module "face-recognition", which is a library that is easy to use as a developer. Using a convolutional mesh built on Dlib, it generates an encoding of human faces, which describes the properties of the faces with a 128-item list. The generated encoding makes the faces of persons interpretable (quantized) by a computer, so that they can be compared. The encodings are interpreted as 128 dimensional vectors in Euclidean space, and by calculating distances between them, the difference or similarity of the faces can be determined. The data associated with the faces: name, id and encoding is stored in a database, and I also created a separate class to manage it, based on the \verb|Dataframe| class of Pandas. The package is able to compare the faces detected from the camera image with the faces of the persons stored in the database. The detected and recognized people are marked on the live image.
+
+
+
+\vspace{0.5cm}
+\paragraph{Keywords} \emph{\keywords}  % A kulcsszavak a fő tex fájlban vannak definiálva
+
+
+\selectthesislanguage % térjünk vissza magyar (angol) nyelvre
